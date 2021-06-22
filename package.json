@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "devold": "node ./database-test.js && next dev",
-    "export": "next build && next export",
-    "build": "npm run export",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
