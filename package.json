@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "devold": "node ./database-test.js && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -11,7 +12,8 @@
   "dependencies": {
     "next": "11.0.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sqlite": "3.0.3"
   },
   "devDependencies": {
     "eslint": "7.29.0",
