@@ -1,15 +1,12 @@
-import sqlite from "sqlite";
+import sqlite3 from "sqlite3";
+import { open } from "sqlite";
 
 export default async function getPeople(req, res) {
-  switch (req.method) {
-    case "GET":
-      const db = await sqlite.open("./mydb.sqlite");
-      const people = await db.all("SELECT * FROM Person");
-      res.status(200).json(people);
-      break;
+  const db = await open({
+    filename: "./mydb.sqlite",
+    driver: sqlite3.Database,
+  });
 
-    default:
-      res.status(500).json({ message: "invalid method" });
-      break;
-  }
+  const rows = await db.all("SELECT * FROM person");
+  res.status(200).json(rows);
 }
